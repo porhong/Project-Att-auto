@@ -167,7 +167,7 @@ def lunch():
 Check Out for lunch success 🟢 
 Time start : """ + current_time) 
     print("Sleeping time !!")
-    time2.sleep(1800)
+    time2.sleep(1200)
 
 def in2():
     subprocess.call([r'In2.bat'])
