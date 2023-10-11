@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231009 12:21:01.372" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20231010 17:32:01.329" rpa="false" schemaversion="4">
 <suite id="s1" name="Clockout" source="D:\All Web\Auto Tool\Project Att auto\Clockout.robot">
 <test id="s1-t1" name="Valid Login" line="10">
 <kw name="Open Browser To Login Page">
@@ -7,29 +7,29 @@
 <arg>${LOGIN URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231009 12:21:01.911" level="INFO">Opening browser 'Chrome' to base url 'https://hrm.allweb.com.kh/login'.</msg>
-<status status="PASS" starttime="20231009 12:21:01.910" endtime="20231009 12:21:05.484"/>
+<msg timestamp="20231010 17:32:01.661" level="INFO">Opening browser 'Chrome' to base url 'https://hrm.allweb.com.kh/login'.</msg>
+<status status="PASS" starttime="20231010 17:32:01.660" endtime="20231010 17:32:04.941"/>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <arg>Human Resource Management System - Login</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20231009 12:21:05.497" level="INFO">Page title is 'Human Resource Management System - Login'.</msg>
-<status status="PASS" starttime="20231009 12:21:05.484" endtime="20231009 12:21:05.497"/>
+<msg timestamp="20231010 17:32:04.974" level="INFO">Page title is 'Human Resource Management System - Login'.</msg>
+<status status="PASS" starttime="20231010 17:32:04.942" endtime="20231010 17:32:04.975"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:01.910" endtime="20231009 12:21:05.497"/>
+<status status="PASS" starttime="20231010 17:32:01.660" endtime="20231010 17:32:04.976"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231009 12:21:05.498" endtime="20231009 12:21:05.635"/>
+<status status="PASS" starttime="20231010 17:32:04.980" endtime="20231010 17:32:05.200"/>
 </kw>
 <kw name="Wait 1sec">
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231009 12:21:06.636" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231009 12:21:05.636" endtime="20231009 12:21:06.636"/>
+<msg timestamp="20231010 17:32:06.207" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 17:32:05.205" endtime="20231010 17:32:06.207"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:05.636" endtime="20231009 12:21:06.636"/>
+<status status="PASS" starttime="20231010 17:32:05.203" endtime="20231010 17:32:06.207"/>
 </kw>
 <kw name="Input Username">
 <arg>porhong.keat@allweb.com.kh</arg>
@@ -37,19 +37,19 @@
 <arg>email</arg>
 <arg>${email}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231009 12:21:06.638" level="INFO">Typing text 'porhong.keat@allweb.com.kh' into text field 'email'.</msg>
-<status status="PASS" starttime="20231009 12:21:06.637" endtime="20231009 12:21:06.764"/>
+<msg timestamp="20231010 17:32:06.211" level="INFO">Typing text 'porhong.keat@allweb.com.kh' into text field 'email'.</msg>
+<status status="PASS" starttime="20231010 17:32:06.209" endtime="20231010 17:32:06.361"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:06.637" endtime="20231009 12:21:06.764"/>
+<status status="PASS" starttime="20231010 17:32:06.208" endtime="20231010 17:32:06.361"/>
 </kw>
 <kw name="Wait 1sec">
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231009 12:21:07.765" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231009 12:21:06.765" endtime="20231009 12:21:07.765"/>
+<msg timestamp="20231010 17:32:07.364" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 17:32:06.362" endtime="20231010 17:32:07.364"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:06.765" endtime="20231009 12:21:07.765"/>
+<status status="PASS" starttime="20231010 17:32:06.362" endtime="20231010 17:32:07.364"/>
 </kw>
 <kw name="Input Password">
 <arg>cAmbodi@168c</arg>
@@ -57,96 +57,96 @@
 <arg>password</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231009 12:21:07.766" level="INFO">Typing text 'cAmbodi@168c' into text field 'password'.</msg>
-<status status="PASS" starttime="20231009 12:21:07.766" endtime="20231009 12:21:07.865"/>
+<msg timestamp="20231010 17:32:07.366" level="INFO">Typing text 'cAmbodi@168c' into text field 'password'.</msg>
+<status status="PASS" starttime="20231010 17:32:07.365" endtime="20231010 17:32:07.471"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:07.766" endtime="20231009 12:21:07.865"/>
+<status status="PASS" starttime="20231010 17:32:07.365" endtime="20231010 17:32:07.471"/>
 </kw>
 <kw name="Wait 1sec">
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231009 12:21:08.866" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231009 12:21:07.866" endtime="20231009 12:21:08.866"/>
+<msg timestamp="20231010 17:32:08.472" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 17:32:07.472" endtime="20231010 17:32:08.472"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:07.865" endtime="20231009 12:21:08.866"/>
+<status status="PASS" starttime="20231010 17:32:07.471" endtime="20231010 17:32:08.472"/>
 </kw>
 <kw name="Login">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>//button[@type='submit']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231009 12:21:08.867" level="INFO">Clicking button '//button[@type='submit']'.</msg>
-<status status="PASS" starttime="20231009 12:21:08.867" endtime="20231009 12:21:12.137"/>
+<msg timestamp="20231010 17:32:08.475" level="INFO">Clicking button '//button[@type='submit']'.</msg>
+<status status="PASS" starttime="20231010 17:32:08.474" endtime="20231010 17:32:11.988"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:08.867" endtime="20231009 12:21:12.137"/>
+<status status="PASS" starttime="20231010 17:32:08.474" endtime="20231010 17:32:11.988"/>
 </kw>
 <kw name="Wait 1sec">
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231009 12:21:13.140" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231009 12:21:12.138" endtime="20231009 12:21:13.140"/>
+<msg timestamp="20231010 17:32:12.990" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 17:32:11.989" endtime="20231010 17:32:12.990"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:12.138" endtime="20231009 12:21:13.140"/>
+<status status="PASS" starttime="20231010 17:32:11.988" endtime="20231010 17:32:12.990"/>
 </kw>
 <kw name="Welcome Page Should Be Open">
 <kw name="Title Should Be" library="SeleniumLibrary">
 <arg>Dashboard</arg>
 <doc>Verifies that the current page title equals ``title``.</doc>
-<msg timestamp="20231009 12:21:13.147" level="INFO">Page title is 'Dashboard'.</msg>
-<status status="PASS" starttime="20231009 12:21:13.141" endtime="20231009 12:21:13.148"/>
+<msg timestamp="20231010 17:32:12.997" level="INFO">Page title is 'Dashboard'.</msg>
+<status status="PASS" starttime="20231010 17:32:12.992" endtime="20231010 17:32:12.997"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:13.141" endtime="20231009 12:21:13.148"/>
+<status status="PASS" starttime="20231010 17:32:12.991" endtime="20231010 17:32:12.997"/>
 </kw>
 <kw name="Wait 1sec">
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231009 12:21:14.149" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231009 12:21:13.148" endtime="20231009 12:21:14.149"/>
+<msg timestamp="20231010 17:32:13.998" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 17:32:12.998" endtime="20231010 17:32:13.998"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:13.148" endtime="20231009 12:21:14.149"/>
+<status status="PASS" starttime="20231010 17:32:12.998" endtime="20231010 17:32:13.998"/>
 </kw>
 <kw name="clock out">
 <kw name="Click Link" library="SeleniumLibrary">
 <arg>//a[@id='clock_in']</arg>
 <doc>Clicks a link identified by ``locator``.</doc>
-<msg timestamp="20231009 12:21:14.153" level="INFO">Clicking link '//a[@id='clock_in']'.</msg>
-<status status="PASS" starttime="20231009 12:21:14.152" endtime="20231009 12:21:14.379"/>
+<msg timestamp="20231010 17:32:13.999" level="INFO">Clicking link '//a[@id='clock_in']'.</msg>
+<status status="PASS" starttime="20231010 17:32:13.999" endtime="20231010 17:32:14.161"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:14.151" endtime="20231009 12:21:14.379"/>
+<status status="PASS" starttime="20231010 17:32:13.998" endtime="20231010 17:32:14.161"/>
 </kw>
 <kw name="Wait 1sec">
 <kw name="Sleep" library="BuiltIn">
 <arg>1s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231009 12:21:15.380" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231009 12:21:14.380" endtime="20231009 12:21:15.380"/>
+<msg timestamp="20231010 17:32:15.165" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231010 17:32:14.162" endtime="20231010 17:32:15.165"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:14.380" endtime="20231009 12:21:15.380"/>
+<status status="PASS" starttime="20231010 17:32:14.162" endtime="20231010 17:32:15.165"/>
 </kw>
 <kw name="confirm clock out">
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>//button[normalize-space()='Yes']</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231009 12:21:15.384" level="INFO">Clicking button '//button[normalize-space()='Yes']'.</msg>
-<status status="PASS" starttime="20231009 12:21:15.383" endtime="20231009 12:21:17.885"/>
+<msg timestamp="20231010 17:32:15.166" level="INFO">Clicking button '//button[normalize-space()='Yes']'.</msg>
+<status status="PASS" starttime="20231010 17:32:15.166" endtime="20231010 17:32:17.581"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:15.382" endtime="20231009 12:21:17.885"/>
+<status status="PASS" starttime="20231010 17:32:15.165" endtime="20231010 17:32:17.581"/>
 </kw>
 <kw name="Wait 5sec">
 <kw name="Sleep" library="BuiltIn">
 <arg>5s</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231009 12:21:22.886" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20231009 12:21:17.886" endtime="20231009 12:21:22.886"/>
+<msg timestamp="20231010 17:32:22.583" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20231010 17:32:17.582" endtime="20231010 17:32:22.583"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:17.885" endtime="20231009 12:21:22.886"/>
+<status status="PASS" starttime="20231010 17:32:17.581" endtime="20231010 17:32:22.583"/>
 </kw>
-<status status="PASS" starttime="20231009 12:21:01.909" endtime="20231009 12:21:22.886"/>
+<status status="PASS" starttime="20231010 17:32:01.658" endtime="20231010 17:32:22.583"/>
 </test>
 <doc>Simple example using SeleniumLibrary.</doc>
-<status status="PASS" starttime="20231009 12:21:01.374" endtime="20231009 12:21:22.888"/>
+<status status="PASS" starttime="20231010 17:32:01.331" endtime="20231010 17:32:22.585"/>
 </suite>
 <statistics>
 <total>
