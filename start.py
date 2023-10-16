@@ -7,11 +7,8 @@ import random
 import requests
 
 
-
-
-
-ran = str(random.randrange(10,30))
-ran2 = str(random.randrange(1,5))
+ran = str(random.randrange(10, 30))
+ran2 = str(random.randrange(1, 5))
 mor_ran = "08:"+ran
 lunch_ran_out = "12:"+ran
 lunch_ran_in = "13:0"+ran2
@@ -19,30 +16,36 @@ leave_ran = "17:3"+ran2
 check = 0
 check_time = 1
 run = True
-morning_1 = time(8,00,0).strftime("%H:%M")
-morning_2 = time(8,59,0).strftime("%H:%M")
-lunch_1 = time(9,00,0).strftime("%H:%M")
-lunch_2 = time(12,30,0).strftime("%H:%M")
-after_lunch_1 = time(12,31,0).strftime("%H:%M")
-after_lunch_2 = time(13,30,0).strftime("%H:%M")
-leave_work_1 = time(13,31,0).strftime("%H:%M")
-leave_work_2 = time(18,59,0).strftime("%H:%M")
+morning_1 = time(8, 00, 0).strftime("%H:%M")
+morning_2 = time(8, 59, 0).strftime("%H:%M")
+lunch_1 = time(9, 00, 0).strftime("%H:%M")
+lunch_2 = time(12, 30, 0).strftime("%H:%M")
+after_lunch_1 = time(12, 31, 0).strftime("%H:%M")
+after_lunch_2 = time(13, 30, 0).strftime("%H:%M")
+leave_work_1 = time(13, 31, 0).strftime("%H:%M")
+leave_work_2 = time(18, 59, 0).strftime("%H:%M")
 
-def start() :
+
+
+def stop():
+    while(True):
+        pass
+
+def start():
     now = datetime.now()
-    current_time = now.strftime("%H:%M") 
-    global check   
+    current_time = now.strftime("%H:%M")
+    global check
     global run
     run = True
-    if current_time >= morning_1 and current_time <= morning_2 :
+    if current_time >= morning_1 and current_time <= morning_2:
         check = 1
-    elif current_time >= lunch_1 and current_time <= lunch_2  :
+    elif current_time >= lunch_1 and current_time <= lunch_2:
         check = 2
-    elif current_time >= after_lunch_1 and current_time <= after_lunch_2 :
+    elif current_time >= after_lunch_1 and current_time <= after_lunch_2:
         check = 3
-    elif current_time >= leave_work_1 and current_time <= leave_work_2 :
+    elif current_time >= leave_work_1 and current_time <= leave_work_2:
         check = 4
-    else :
+    else:
         check = 0
 
 
@@ -63,8 +66,6 @@ def wait2run():
     return runtime
 
 
-
-
 def send_to_telegram(message):
 
     apiToken = '6628897049:AAGzSfvTc8xSMpX9wMFiU7OF-PLBx0VMPDU'
@@ -72,25 +73,35 @@ def send_to_telegram(message):
     apiURL = f'https://api.telegram.org/bot{apiToken}/sendMessage'
 
     try:
-        response = requests.post(apiURL, json={'chat_id': chatID, 'text': message})
-        #print(response.text)
+        response = requests.post(
+            apiURL, json={'chat_id': chatID, 'text': message})
+        # print(response.text)
     except Exception as e:
         print(e)
 
-def check_time_passed(time_run_check):
+
+def check_time_passed(time_run_check, t_check):
+    global check
     now = datetime.now()
     current = now.strftime("%H:%M")
-    if time_run_check < current :
-        start()
+    if time_run_check < current:
+        check = t_check+ 1
+        start_service()
+        
+    elif check == 4:
+        check=0
 
+def dayoff():
+    relax = "It's not working day 😀"
+    print(relax)
+    send_to_telegram(relax)
+    time2.sleep(82800)
+    start_service()
 
-    
     # reactive_time = time(7,00,0).strftime("%H:%M")
     # delta = datetime.strftime(current) - datetime.strftime(reactive_time)
     # second = delta.total_seconds()
     # print("Sleeping time !!" + second)
-
-
 
 
 # morning_1 = time(8,00,0).strftime("%H:%M")
@@ -101,7 +112,6 @@ def check_time_passed(time_run_check):
 # after_lunch_2 = time(13,30,0).strftime("%H:%M")
 # leave_work_1 = time(17,0,0).strftime("%H:%M")
 # leave_work_2 = time(18,30,0).strftime("%H:%M")
-
 
 
 # def start() :
@@ -123,195 +133,203 @@ def check_time_passed(time_run_check):
 #     else :
 #         print("Not Action time." + " Current time is : " +  current_time)
 
-def in1() :
+def in1():
+    now = datetime.now()
+    current_time = now.strftime("%H:%M")
     subprocess.call([r'In1.bat'])
-    ran = str(random.randrange(10,30,2)) 
-    ran2 = str(random.randrange(-1,5))
-    global mor_ran 
+    ran = str(random.randrange(10, 30, 2))
+    ran2 = str(random.randrange(-1, 5))
+    global mor_ran
     global lunch_ran_out
     global lunch_ran_in
     global leave_ran
-    global check_time
+    global check
     global run
     run = False
     mor_ran = "08:"+ran
     lunch_ran_out = "12:"+ran
     lunch_ran_in = "13:0"+ran2
     leave_ran = "17:3"+ran2
-    check_time = 2
+    check = 2
     send_to_telegram("""
 Check in morning success 🟢 
-Time start : """ + current_time) 
+Time start : """ + current_time)
     print("Sleeping time !!")
     time2.sleep(3600)
 
 
-
 def lunch():
+    now = datetime.now()
+    current_time = now.strftime("%H:%M")
     subprocess.call([r'leave.bat'])
-    ran = str(random.randrange(10,30,2)) 
-    ran2 = str(random.randrange(-1,5))
-    global mor_ran 
+    ran = str(random.randrange(10, 30, 2))
+    ran2 = str(random.randrange(-1, 5))
+    global mor_ran
     global lunch_ran_out
     global lunch_ran_in
     global leave_ran
-    global check_time
+    global check
     global run
     run = False
     mor_ran = "08:"+ran
     lunch_ran_out = "12:"+ran
     lunch_ran_in = "13:0"+ran2
     leave_ran = "17:3"+ran2
-    check_time = 3
+    check = 3
     send_to_telegram("""
 Check Out for lunch success 🟢 
-Time start : """ + current_time) 
+Time start : """ + current_time)
     print("Sleeping time !!")
     time2.sleep(1200)
 
+
 def in2():
+    now = datetime.now()
+    current_time = now.strftime("%H:%M")
     subprocess.call([r'In2.bat'])
-    ran = str(random.randrange(10,30,2)) 
-    ran2 = str(random.randrange(-1,5))
-    global mor_ran 
+    ran = str(random.randrange(10, 30, 2))
+    ran2 = str(random.randrange(-1, 5))
+    global mor_ran
     global lunch_ran_out
     global lunch_ran_in
     global leave_ran
-    global check_time
+    global check
     global run
     run = False
     mor_ran = "08:"+ran
     lunch_ran_out = "12:"+ran
     lunch_ran_in = "13:0"+ran2
     leave_ran = "17:3"+ran2
-    check_time = 4
+    check = 4
     send_to_telegram("""
 Check in after lunch success 🟢 
-Time start : """ + current_time) 
+Time start : """ + current_time)
     print("Sleeping time !!")
     time2.sleep(1800)
 
+
 def leave():
+    now = datetime.now()
+    current_time = now.strftime("%H:%M")
     subprocess.call([r'leave.bat'])
-    ran = str(random.randrange(10,30,2)) 
-    ran2 = str(random.randrange(-1,5))
-    global mor_ran 
+    ran = str(random.randrange(10, 30, 2))
+    ran2 = str(random.randrange(-1, 5))
+    global mor_ran
     global lunch_ran_out
     global lunch_ran_in
     global leave_ran
-    global check_time
+    global check
     global run
     run = False
     mor_ran = "08:"+ran
     lunch_ran_out = "12:"+ran
     lunch_ran_in = "13:0"+ran2
     leave_ran = "17:3"+ran2
-    check_time = 0
+    check = 0
     send_to_telegram("""
 Check out of day success 🟢 
-Time start : """ + current_time) 
+Time start : """ + current_time)
     runAt = 2*wait2run()
     send_to_telegram("""
 Watting to Start at Tmr 😴
-Time start : """ + runAt) 
+Time start : """ + runAt)
     print("Sleeping time !! and will start at ;" + runAt)
     time2.sleep(runAt)
 
-def dayoff():
-    relax = "It's not working day 😀"
-    print (relax)
-    send_to_telegram(relax)
-    time2.sleep(82800)
-    start()
 
-
-while True:
-    
-    print ("******* Welcome *******")
-    now = datetime.now()
-    current_time = now.strftime("%H:%M")
+def morning_in():
+    global check
+    print("Current Check is : " + str(check))
+    schedule.every().monday.at(mor_ran).do(in1)
+    schedule.every().tuesday.at(mor_ran).do(in1)
+    schedule.every().wednesday.at(mor_ran).do(in1)
+    schedule.every().thursday.at(mor_ran).do(in1)
+    schedule.every().friday.at(mor_ran).do(in1)
+    schedule.every().saturday.at(mor_ran).do(dayoff)
+    schedule.every().sunday.at(mor_ran).do(dayoff)
+    print("Will run at : " + str(mor_ran))
     send_to_telegram("""
-Service Started
-Time start : """ + current_time) 
-    print("Started time is : " + current_time)
-    print("Status : Active")
-    start()
-    if check == 1 :
-        print ( "Current Check is : " + str(check))
+    Waiting Check in morning 🟠  
+    Will start : """ + mor_ran)
+    while run == True:
+        schedule.run_pending()
+        time2.sleep(1)
+        check_time_passed(mor_ran,1)
+def lunch_exit():
+    print("Current Check is : " + str(check))
+    schedule.every().monday.at(lunch_ran_out).do(lunch)
+    schedule.every().tuesday.at(lunch_ran_out).do(lunch)
+    schedule.every().wednesday.at(lunch_ran_out).do(lunch)
+    schedule.every().thursday.at(lunch_ran_out).do(lunch)
+    schedule.every().friday.at(lunch_ran_out).do(lunch)
+    print("Will run at : " + str(lunch_ran_out))
+    send_to_telegram("""
+    Waiting Check out lunch 🟠  
+    Will start : """ + lunch_ran_out)
+    while run == True:
+        schedule.run_pending()
+        time2.sleep(1)
+        check_time_passed(lunch_ran_out,2)
+def lunch_in():
+    print("Current Check is : " + str(check))
+    schedule.every().monday.at(lunch_ran_in).do(in2)
+    schedule.every().tuesday.at(lunch_ran_in).do(in2)
+    schedule.every().wednesday.at(lunch_ran_in).do(in2)
+    schedule.every().thursday.at(lunch_ran_in).do(in2)
+    schedule.every().friday.at(lunch_ran_in).do(in2)
+    print("Will run at : " + str(lunch_ran_in))
+    send_to_telegram("""
+    Waiting Check in after lunch 🟠  
+    Will start : """ + lunch_ran_in)
+    while run == True:
+        schedule.run_pending()
+        time2.sleep(1)
+        check_time_passed(lunch_ran_in,3)
+def work_exit():
+    print("Current Check is : " + str(check))
+    schedule.every().monday.at(leave_ran).do(leave)
+    schedule.every().tuesday.at(leave_ran).do(leave)
+    schedule.every().wednesday.at(leave_ran).do(leave)
+    schedule.every().thursday.at(leave_ran).do(leave)
+    schedule.every().friday.at(leave_ran).do(leave)
+    print("Will run at : " + str(leave_ran))
+    send_to_telegram("""
+    Waiting Check out of the day 🟠  
+    Will start : """ + leave_ran)
+    while run == True:
+        schedule.run_pending()
+        time2.sleep(1)
+        check_time_passed(leave_ran,4)
 
-        schedule.every().monday.at(mor_ran).do(in1)
-        schedule.every().tuesday.at(mor_ran).do(in1)
-        schedule.every().wednesday.at(mor_ran).do(in1)
-        schedule.every().thursday.at(mor_ran).do(in1)
-        schedule.every().friday.at(mor_ran).do(in1)
-        schedule.every().saturday.at(mor_ran).do(dayoff)
-        schedule.every().sunday.at(mor_ran).do(dayoff)
-        print("Will run at : " + str(mor_ran))
+def start_service():
+    while True:
+        print("******* Welcome *******")
+        now = datetime.now()
+        current_time = now.strftime("%H:%M")
         send_to_telegram("""
-Waiting Check in morning 🟠  
-Will start : """ + mor_ran) 
-        while run == True:
-            schedule.run_pending()
-            time2.sleep(1)
-            check_time_passed(mor_ran)
+    Service Started
+    Time start : """ + current_time)
+        print("Started time is : " + current_time)
+        print("Status : Active")
+        if check == 1:
+           morning_in()
 
-    elif check ==2 :
-        print ( "Current Check is : " + str(check))
+        elif check == 2:
+           lunch_exit()
 
-        schedule.every().monday.at(lunch_ran_out).do(lunch)
-        schedule.every().tuesday.at(lunch_ran_out).do(lunch)
-        schedule.every().wednesday.at(lunch_ran_out).do(lunch)
-        schedule.every().thursday.at(lunch_ran_out).do(lunch)
-        schedule.every().friday.at(lunch_ran_out).do(lunch)
-        print("Will run at : " + str(lunch_ran_out))
-        send_to_telegram("""
-Waiting Check out lunch 🟠  
-Will start : """ + lunch_ran_out) 
-        while run == True:
-            schedule.run_pending()
-            time2.sleep(1)
-            check_time_passed(lunch_ran_out)
+        elif check == 3:
+            lunch_in()
 
-    elif check == 3 :
-        print ( "Current Check is : " + str(check))
-        schedule.every().monday.at(lunch_ran_in).do(in2)
-        schedule.every().tuesday.at(lunch_ran_in).do(in2)
-        schedule.every().wednesday.at(lunch_ran_in).do(in2)
-        schedule.every().thursday.at(lunch_ran_in).do(in2)
-        schedule.every().friday.at(lunch_ran_in).do(in2)
-        print("Will run at : " + str(lunch_ran_in))
-        send_to_telegram("""
-Waiting Check in after lunch 🟠  
-Will start : """ + lunch_ran_in)
-        while run == True:
-            schedule.run_pending()
-            time2.sleep(1)
-            check_time_passed(lunch_ran_in)
+        elif check == 4:
+            work_exit()
 
-    elif check == 4:
-        print ( "Current Check is : " + str(check))
-        schedule.every().monday.at(leave_ran).do(leave)
-        schedule.every().tuesday.at(leave_ran).do(leave)
-        schedule.every().wednesday.at(leave_ran).do(leave)
-        schedule.every().thursday.at(leave_ran).do(leave)
-        schedule.every().friday.at(leave_ran).do(leave)
-        print("Will run at : " + str(leave_ran))
-        send_to_telegram("""
-Waiting Check out of the day 🟠  
-Will start : """ + leave_ran)
-        while run == True:
-            schedule.run_pending()
-            time2.sleep(1)
-            check_time_passed(leave_ran)
-            
-    else :
-        print("Not Active time!!")
-        time2.sleep(60)
-    
-    
+        else:
+            print("Not Active time!!")
+            time2.sleep(60)
+            start()
+start()
+start_service()
 
 
-    
-    
 
 
